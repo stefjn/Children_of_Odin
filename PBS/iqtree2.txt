@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+
+#PBS -l nodes=1:ppn=4
+#PBS -l mem=100gb
+#PBS -l walltime=24:00:00
+#PBS -M s.nobs@student.unsw.edu.au
+#PBS -m ae
+#PBS -j oe
+
+
+cd /srv/scratch/z5062530/phylogeny/tubulin29/a
+
+module add iqtree/2.0.4
+
+iqtree-omp -s Zaremba_H37_b.mafft.endtrim.fa --seqtype AA -B 10000 --bnni --wbtl -m MFP -nt 4
